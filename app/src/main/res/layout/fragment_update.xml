@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="args"
+            type="com.athzaq.todolistapp.update.UpdateFragmentArgs" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_16dp"
+        tools:context=".update.UpdateFragment">
+
+        <EditText
+            android:id="@+id/edt_text_title_up"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/custom_input"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            tools:inputType="textPersonName"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="@{args.currentItem.title}"
+            android:paddingStart="@dimen/_24dp"
+            android:paddingEnd="@dimen/_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner_prioritas_up"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:minHeight="48dp"
+            android:paddingHorizontal="8dp"
+            android:entries="@array/prioritas"
+            android:parsePriorityToInt="@{args.currentItem.priority}"
+            app:layout_constraintEnd_toEndOf="@+id/edt_text_title_up"
+            app:layout_constraintStart_toStartOf="@+id/edt_text_title_up"
+            app:layout_constraintTop_toBottomOf="@+id/edt_text_title_up" />
+
+        <EditText
+            android:id="@+id/edt_txt_desc_up"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:ems="10"
+            android:text="@{args.currentItem.description}"
+            android:inputType="textMultiLine"
+            android:minHeight="48dp"
+            android:paddingHorizontal="12dp"
+            android:gravity="start|top"
+            android:paddingVertical="16dp"
+            android:paddingEnd="16dp"
+            android:hint="@string/delete"
+            app:layout_constraintEnd_toEndOf="@+id/spinner_prioritas_up"
+            app:layout_constraintStart_toStartOf="@+id/spinner_prioritas_up"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_prioritas_up" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+<!--@{args.currentItem.title}-->
+<!--    @{args.currentItem.priority}-->
+<!--    @{args.currentItem.description}-->
+
